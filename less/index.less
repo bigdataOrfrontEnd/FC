@@ -1,0 +1,111 @@
+//out:"../css/"
+@rootSize: 37.5rem;
+img {
+  display: block;
+  width: 100%;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #f0f0f0;
+}
+.main {
+  margin-bottom: (50 / @rootSize); //为了防止内容被footer掩盖
+  .banner {
+    height: (160 / @rootSize);
+  }
+  .title {
+    height: (40 / @rootSize);
+    padding: (10 / @rootSize);
+    line-height: (40 / @rootSize);
+    h4 {
+      font-size: (14 / @rootSize);
+      //   font-weight: 400;
+    }
+  }
+  .item {
+    margin-top: (10 / @rootSize);
+    .plc {
+      position: relative;
+      height: (160 / @rootSize);
+      width: 100%;
+    }
+    i {
+      position: absolute;
+      top: (15 / @rootSize);
+      right: (18 / @rootSize);
+      font-size: (24 / @rootSize);
+      color: #fff;
+    }
+    .active {
+      position: absolute;
+      top: (-4 / @rootSize);
+      left: (15 / @rootSize);
+      width: (68 / @rootSize);
+      height: (29 / @rootSize);
+      font-size: (12 / @rootSize);
+      background-image: url(../images/status_active.png);
+      background-size: contain;
+      text-align: center;
+      line-height: (25 / @rootSize);
+      &.off {
+        background-image: url(../images/status_default.png);
+      }
+    }
+    .txt {
+      .top {
+        display: flex;
+        justify-content: space-between;
+        font-size: (15 / @rootSize);
+        padding: (10 / @rootSize);
+        p {
+          width: (290 / @rootSize);
+        }
+        h5 {
+          font-weight: 400;
+          font-size: (24 / @rootSize);
+        }
+      }
+      .bottom {
+        display: flex;
+        font-size: (11 / @rootSize);
+        p {
+          padding-left: (10 / @rootSize);
+        }
+        em {
+          font-size: (16 / @rootSize);
+        }
+        span {
+          color: #d78790;
+        }
+      }
+    }
+  }
+}
+footer {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  //使用定位会脱标，导致变为行内块元素,所以给个宽度
+  width: 100%;
+  height: (50 / @rootSize);
+  background-color: #feca49;
+  text-align: center;
+  align-items: center;
+
+  a {
+    font-size: (11 / @rootSize);
+    text-decoration: none;
+    color: #d78790;
+    &.current {
+      color: #fff;
+    }
+    i {
+      font-size: (11 / @rootSize);
+    }
+  }
+}
