@@ -1,0 +1,98 @@
+//out: zhuye.css
+@RootSize: 37.5vw;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; //设置后边框宽高不算
+  font-family: "Microsoft YaHei" sans-serif;
+}
+
+nav {
+  position: fixed; //这个导致了脱标
+  width: 100%; //加入这个，我也不知道这个是什么原因造成的
+  background: #1b1b1b;
+  color: aliceblue;
+  padding: 20px;
+  z-index: 10; //要给图层，不然就会被图片覆盖了，定位使用了要使用这个
+
+  .wraper {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  ul {
+    //inline-flex：将子元素作为内联块级弹性伸缩盒显示
+    display: inline-flex;
+    // display: flex;
+  }
+  li {
+    list-style: none;
+    margin-left: 10px;
+    a {
+      padding: 10px;
+      text-decoration: none;
+      color: aliceblue;
+      &:hover {
+        background-color: aliceblue;
+        color: #1b1b1b;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+.img {
+  background: url(./images/img3.jpg) no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative; //定位会覆盖下面的
+  // 给图片一个遮罩
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+section {
+  position: relative;
+}
+.conte {
+  // 这个是定位元素居中
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: aliceblue;
+
+  width: 100%;
+  text-align: center;
+  h1 {
+    font-size: 42px;
+    font-weight: 900;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: 800;
+  }
+  button {
+    margin: 10px;
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 800;
+    &:first-child {
+      background: transparent;
+      color: aliceblue;
+    }
+  }
+}
